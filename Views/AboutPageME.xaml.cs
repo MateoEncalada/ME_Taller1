@@ -1,4 +1,4 @@
-namespace ME_Taller1;
+namespace ME_Taller1.Views;
 
 public partial class AboutPageME : ContentPage
 {
@@ -9,6 +9,9 @@ public partial class AboutPageME : ContentPage
 	}
     private async void MELearnMore_Clicked(object sender, EventArgs e)
     {
-        await Launcher.Default.OpenAsync("https://aka.ms/maui");
+        if (BindingContext is Models.AboutME about)
+        {
+            await Launcher.Default.OpenAsync("https://aka.ms/maui");
+        }
     }
 }
