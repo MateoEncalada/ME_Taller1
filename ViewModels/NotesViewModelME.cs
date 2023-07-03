@@ -47,11 +47,14 @@ namespace ME_Taller1.ViewModels
 
                 // If note is found, update it
                 if (matchedNote != null)
+                {
                     matchedNote.Reload();
+                    AllNotes.Move(AllNotes.IndexOf(matchedNote), 0);
+                }
 
                 // If note isn't found, it's new; add it.
                 else
-                    AllNotes.Add(new NoteViewModelME(NotesME.Load(noteId)));
+                    AllNotes.Insert(0, new NoteViewModelME(Models.NotesME.Load(noteId)));
             }
         }
     }
